@@ -1,0 +1,220 @@
+{
+    "title": "CFB v3 Scores",
+    "description": "CFB schedules, scores, team stats, odds, weather, and news API.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/fantasydata.net/cfb-v3-scores/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://api.fantasydata.net/v3/cfb/scores",
+                    "https://api.fantasydata.net/v3/cfb/scores",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apiKeyHeader": {
+                "label": "Ocp-Apim-Subscription-Key (apiKeyHeader)",
+                "viewClass": "TextFieldView"
+            },
+            "apiKeyQuery": {
+                "label": "subscription-key (apiKeyQuery)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "AreGamesInProgress": {
+            "main": "./lib/actions/AreGamesInProgress.js",
+            "title": "Are Games In Progress",
+            "description": "Returns <code>true</code> if there is at least one game being played at the time of the request or <code>false</code> if there are none.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AreGamesInProgress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CurrentSeason": {
+            "main": "./lib/actions/CurrentSeason.js",
+            "title": "Current Season",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CurrentSeason.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CurrentWeek": {
+            "main": "./lib/actions/CurrentWeek.js",
+            "title": "Current Week",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CurrentWeek.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Schedules": {
+            "main": "./lib/actions/Schedules.js",
+            "title": "Schedules",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Schedules.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GamesByDate": {
+            "main": "./lib/actions/GamesByDate.js",
+            "title": "Games by Date",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GamesByDate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GamesByWeek": {
+            "main": "./lib/actions/GamesByWeek.js",
+            "title": "Games by Week",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GamesByWeek.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ConferenceHierarchyWithTeams": {
+            "main": "./lib/actions/ConferenceHierarchyWithTeams.js",
+            "title": "Conference Hierarchy (with Teams)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ConferenceHierarchyWithTeams.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Stadiums": {
+            "main": "./lib/actions/Stadiums.js",
+            "title": "Stadiums",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Stadiums.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TeamGameStatsByWeek": {
+            "main": "./lib/actions/TeamGameStatsByWeek.js",
+            "title": "Team Game Stats by Week",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TeamGameStatsByWeek.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TeamSeasonStatsStandings": {
+            "main": "./lib/actions/TeamSeasonStatsStandings.js",
+            "title": "Team Season Stats & Standings",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TeamSeasonStatsStandings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Teams": {
+            "main": "./lib/actions/Teams.js",
+            "title": "Teams",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Teams.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
